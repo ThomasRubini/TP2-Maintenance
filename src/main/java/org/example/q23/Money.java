@@ -20,9 +20,11 @@ public class Money {
     public int getAmount() {
         return amount;
     }
+
     public String getCurrency() {
         return currency;
     }
+
     public boolean equals(Object anObject) {
         if (anObject instanceof Money) {
             Money money = (Money) anObject;

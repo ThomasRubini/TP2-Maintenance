@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ReverseTest {
 
     public static Object[] provider() {
-        return new String[][] {
-                new String[] {"abc", "cba"},
-                new String[] {"porte", "etrop"},
-                new String[] {"aa", "aa"}
+        return new String[][]{
+                new String[]{"abc", "cba"},
+                new String[]{"porte", "etrop"},
+                new String[]{"aa", "aa"}
         };
     }
 
@@ -25,6 +25,6 @@ public class ReverseTest {
 
     @Test
     public void testException() {
-        assertThrows(NullPointerException.class, ()-> Reverse.reverse(null));
+        assertThrows(NullPointerException.class, () -> Reverse.reverse(null));
     }
 }

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PasswordValidatorTest {
 
     public static String[] validPasswordsProvider() {
-        return new String[] {"abcde0", "hello1312"};
+        return new String[]{"abcde0", "hello1312"};
     }
 
     @ParameterizedTest
@@ -20,7 +20,7 @@ public class PasswordValidatorTest {
     }
 
     public static String[] invalidPasswordsProvider() {
-        return new String[] {"0h", "12hello", "ubafEJYTIEeftaikuetuaeYEAThj", "76916719289701278109827281"};
+        return new String[]{"0h", "12hello", "ubafEJYTIEeftaikuetuaeYEAThj", "76916719289701278109827281"};
     }
 
     @ParameterizedTest

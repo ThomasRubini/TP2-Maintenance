@@ -21,12 +21,14 @@ public class ClientTest {
     public void afterCreationShouldHaveNoAddress() {
         assertEquals(0, client.getAddresses().size());
     }
+
     @Test
     public void shouldAllowToAddAddress() {
         client.addAddress(addressA);
         assertEquals(1, client.getAddresses().size());
         assertTrue(client.getAddresses().contains(addressA));
     }
+
     @Test
     public void shouldAllowToAddManyAddresses() {
         client.addAddress(addressA);

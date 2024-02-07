@@ -35,6 +35,7 @@ public class BookingSystemTest {
         assertFalse(system.reserve(4));
         assertEquals(Collections.singletonList(4), system.listBookedHours());
     }
+
     @Test
     public void testInvalidHour() {
         assertThrows(IllegalArgumentException.class, () -> system.reserve(-1));
