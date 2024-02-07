@@ -3,6 +3,7 @@ package org.example.q10;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RegexTest {
     @Test
@@ -35,5 +36,10 @@ public class RegexTest {
         assertArrayEquals(new String[]{}, Regex.threeDigitNumbers(""));
         assertArrayEquals(new String[]{}, Regex.threeDigitNumbers("01"));
         assertArrayEquals(new String[]{}, Regex.threeDigitNumbers("hello"));
+    }
+
+    @Test
+    public void nullInput() {
+        assertThrows(NullPointerException.class, () -> Regex.threeDigitNumbers(null));
     }
 }
