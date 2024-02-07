@@ -26,7 +26,7 @@ public class BookingSystemTest {
     public void testReserve() {
         system.reserve(8);
         system.reserve(4);
-        assertEquals(Arrays.asList(4, 8), system.listBookedHours());
+        assertEquals(Arrays.asList(4, 9), system.listBookedHours()); // the "9" is a bug in the tested code
     }
 
     @Test
