@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class AppTest
 {
+    // Q2
     public static Object[] moneyProvider() {
         return new Object[] {
                 new Object[] {10, "USD"},
@@ -28,6 +29,7 @@ public class AppTest
         assertEquals(amount, m.getAmount());
     }
 
+    // Q3
     @Test
     public void testInvalidAmount()
     {
