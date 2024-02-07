@@ -1,16 +1,16 @@
 package org.example;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase
+public class AppTest
 {
     public static Object[] moneyProvider() {
         return new Object[] {
@@ -28,17 +28,20 @@ public class AppTest extends TestCase
         assertEquals(amount, m.getAmount());
     }
 
+    @Test
     public void testInvalidAmount()
     {
-        Assert.assertThrows(IllegalArgumentException.class, ()-> new Money(-5, "dollars"));
+        assertThrows(IllegalArgumentException.class, ()-> new Money(-5, "dollars"));
     }
 
+    @Test
     public void testInvalidCurrency()
     {
-        Assert.assertThrows(IllegalArgumentException.class, ()-> new Money(5, ""));
-        Assert.assertThrows(IllegalArgumentException.class, ()-> new Money(5, null));
+        assertThrows(IllegalArgumentException.class, ()-> new Money(5, ""));
+        assertThrows(IllegalArgumentException.class, ()-> new Money(5, null));
     }
 
+    @Test
     public void testEquals()
     {
         Money m = new Money(5, "dollars");
