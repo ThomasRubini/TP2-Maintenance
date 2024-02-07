@@ -1,22 +1,32 @@
 package org.example.q8;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordValidatorTest {
 
-    @Test
-    public void testValid() {
-        assertTrue(PasswordValidator.validate("abcde0"));
-        assertTrue(PasswordValidator.validate("hello1312"));
+    public static String[] validPasswordsProvider() {
+        return new String[] {"abcde0", "hello1312"};
     }
-    @Test
-    public void testInvalid() {
-        assertFalse(PasswordValidator.validate("0h"));
-        assertFalse(PasswordValidator.validate("12hello"));
-        assertFalse(PasswordValidator.validate("ubafEJYTIEeftaikuetuaeYEAThj"));
-        assertFalse(PasswordValidator.validate("76916719289701278109827281"));
+
+    @ParameterizedTest
+    @MethodSource("validPasswordsProvider")
+    public void testValid(String password) {
+        assertTrue(PasswordValidator.validate(password));
+    }
+
+    public static String[] invalidPasswordsProvider() {
+        return new String[] {"0h", "12hello", "ubafEJYTIEeftaikuetuaeYEAThj", "76916719289701278109827281"};
+    }
+
+    @ParameterizedTest
+    @MethodSource("invalidPasswordsProvider")
+
+    public void testInvalid(String password) {
+        assertFalse(PasswordValidator.validate(password));
     }
 }
