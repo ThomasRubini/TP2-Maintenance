@@ -26,14 +26,14 @@ public class BookingSystemTest {
     public void testReserve() {
         system.reserve(8);
         system.reserve(4);
-        assertEquals(system.listBookedHours(), Arrays.asList(4, 8));
+        assertEquals(Arrays.asList(4, 8), system.listBookedHours());
     }
 
     @Test
     public void testReserveTwice() {
         assertTrue(system.reserve(4));
         assertFalse(system.reserve(4));
-        assertEquals(system.listBookedHours(), Collections.singletonList(4));
+        assertEquals(Collections.singletonList(4), system.listBookedHours());
     }
     @Test
     public void testInvalidHour() {
