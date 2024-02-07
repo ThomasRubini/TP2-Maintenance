@@ -1,20 +1,33 @@
 package org.example.q6;
 
+import org.example.q23.Money;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FahrenheitCelciusConverterTest {
-    @Test
-    public void shouldConvertCelciusToFahrenheit() {
-        assertEquals(32, FahrenheitCelciusConverter.toFahrenheit(0));
-        assertEquals(98, FahrenheitCelciusConverter.toFahrenheit(37));
-        assertEquals(212, FahrenheitCelciusConverter.toFahrenheit(100));
+    public static Object[] provider1() {
+        return new Object[] {
+                new Object[] {32, 0},
+                new Object[] {98, 37},
+                new Object[] {212, 100}
+        };
     }
-    @Test
-    public void shouldConvertFahrenheitToCelcius() {
-        assertEquals(0, FahrenheitCelciusConverter.toCelcius(32));
-        assertEquals(37, FahrenheitCelciusConverter.toCelcius(100));
-        assertEquals(100, FahrenheitCelciusConverter.toCelcius(212));
+
+    @ParameterizedTest
+    @MethodSource("provider1")
+    public void testAmountAndCurrency(int expected, int celcius)
+    {
+        assertEquals(expected, FahrenheitCelciusConverter.toFahrenheit(celcius));
+    }
+
+    public static Object[] provider2() {
+        return new Object[] {
+                new Object[] {0, 32},
+                new Object[] {37, 100},
+                new Object[] {100, 212}
+        };
     }
 }
