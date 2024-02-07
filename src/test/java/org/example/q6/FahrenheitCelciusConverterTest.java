@@ -16,7 +16,7 @@ public class FahrenheitCelciusConverterTest {
 
     @ParameterizedTest
     @MethodSource("provider1")
-    public void testAmountAndCurrency(int expected, int celcius) {
+    public void testToFahrenheit(int expected, int celcius) {
         assertEquals(expected, FahrenheitCelciusConverter.toFahrenheit(celcius));
     }
 
@@ -26,5 +26,11 @@ public class FahrenheitCelciusConverterTest {
                 new Object[]{37, 100},
                 new Object[]{100, 212}
         };
+    }
+
+    @ParameterizedTest
+    @MethodSource("provider2")
+    public void testToCelcius(int expected, int fahrenheit) {
+        assertEquals(expected, FahrenheitCelciusConverter.toCelcius(fahrenheit));
     }
 }
