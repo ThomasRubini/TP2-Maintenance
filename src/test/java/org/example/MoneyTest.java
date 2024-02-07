@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Unit test for simple App.
  */
-public class AppTest
+public class MoneyTest
 {
     // Q2
     public static Object[] moneyProvider() {
