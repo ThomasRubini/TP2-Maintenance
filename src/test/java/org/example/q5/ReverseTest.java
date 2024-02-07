@@ -1,14 +1,14 @@
-package org.example;
+package org.example.q5;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class Q5Test {
+public class ReverseTest {
 
     public static Object[] provider() {
         return new String[][] {
@@ -21,11 +21,11 @@ public class Q5Test {
     @ParameterizedTest
     @MethodSource("provider")
     public void testReverse(String in, String expectedOut) {
-        assertEquals(expectedOut, Q5.reverse(in));
+        Assertions.assertEquals(expectedOut, Reverse.reverse(in));
     }
 
     @Test
     public void testException() {
-        assertThrows(NullPointerException.class, ()->Q5.reverse(null));
+        assertThrows(NullPointerException.class, ()-> Reverse.reverse(null));
     }
 }

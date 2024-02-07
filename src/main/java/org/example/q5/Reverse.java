@@ -1,9 +1,9 @@
-package org.example;
+package org.example.q5;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Q5 {
+public class Reverse {
     public static String reverse(String s) {
         List<String> tempArray = new ArrayList<>(s.length());
         for (int i = 0; i < s.length(); i++) {
